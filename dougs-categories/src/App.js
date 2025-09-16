@@ -1,8 +1,9 @@
-import List from "./features/categories/List";
+import Main from "./features/categories/Main";
+import "../src/assets/App/App.css";
 function App() {
   return (
     <div className="App">
-      <List />
+      <Main />
     </div>
   );
 }
