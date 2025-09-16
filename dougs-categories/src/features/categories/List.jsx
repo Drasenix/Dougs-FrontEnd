@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
 import "../../assets/features/categories/List.css";
-import getVisibleCategories from "../../services/CategorieService";
+import {
+  getCategory,
+  getVisibleCategories,
+} from "../../services/CategorieService";
 import search from "../../assets/features/categories/img/search.png";
 
 function List() {
   useEffect(() => {
     getVisibleCategories();
+    getCategory(1);
   }, []);
 
   return (
