@@ -1,0 +1,29 @@
+.List-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 17px 122px;
+  gap: 8px;
+
+  position: absolute;
+  height: 60px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  background: #ffffff;
+}
+
+.title-categories {
+  font-family: "Eina03-SemiBold";
+  font-size: 22px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+
+  color: #001a25;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
