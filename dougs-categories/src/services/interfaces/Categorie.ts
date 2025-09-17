@@ -1,10 +1,12 @@
-export interface Categorie {
+export interface ICategorie {
   id: number;
-  group?: {
-    id: number;
-    name: string;
-    color: string;
-  };
+  group?: IGroup;
   wording: string;
   description: string;
+}
+
+export interface IGroup {
+  id: number;
+  name: string;
+  color: string;
 }

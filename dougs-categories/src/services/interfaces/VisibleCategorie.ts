@@ -1,3 +1,3 @@
-export interface VisibleCategorie {
+export interface IVisibleCategorie {
   id: number;
 }

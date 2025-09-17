@@ -1,0 +1,35 @@
+.categories-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.category-item {
+  outline: 0.5px solid #dce4ed;
+}
+
+.category-content {
+  padding: 16px;
+}
+
+.category-name-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 10px;
+  background: #f1f7fc;
+  border-radius: 16px;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #11abec;
+  width: fit-content;
+}

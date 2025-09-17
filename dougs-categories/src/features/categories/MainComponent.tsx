@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import "../../assets/features/categories/Main.css";
-import ButtonCategory from "../../components/ui/ButtonCategory";
-import List from "./List";
+import "../../assets/features/categories/MainComponent.css";
+import ButtonCategoryComponent from "../../components/ui/ButtonCategoryComponent";
+import ListComponent from "./ListComponent";
 
 export enum OrderingTypes {
   Alphabetical = "alphabetical",
   Group = "group",
 }
-function Main() {
+function MainComponent() {
   const [ordering, setOrdering] = useState(OrderingTypes.Group);
 
   function changeOrdering(ordering: OrderingTypes) {
@@ -17,20 +17,20 @@ function Main() {
     <>
       <header className="Main-header">
         <p className="title-categories">Catégories</p>
-        <ButtonCategory
+        <ButtonCategoryComponent
           ordering={OrderingTypes.Group}
-          isActive={ordering === OrderingTypes.Group}          
+          isActive={ordering === OrderingTypes.Group}
           changeOrdering={changeOrdering}
-        ></ButtonCategory>
-        <ButtonCategory
+        ></ButtonCategoryComponent>
+        <ButtonCategoryComponent
           ordering={OrderingTypes.Alphabetical}
           isActive={ordering === OrderingTypes.Alphabetical}
           changeOrdering={changeOrdering}
-        ></ButtonCategory>
+        ></ButtonCategoryComponent>
       </header>
 
-      <main>
-        <List ordering={ordering}></List>
+      <main className="Main-main">
+        <ListComponent ordering={ordering}></ListComponent>
       </main>
 
       <footer className="Main-footer">
@@ -42,4 +42,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainComponent;

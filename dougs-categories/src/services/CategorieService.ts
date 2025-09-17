@@ -1,8 +1,8 @@
 import api from "../lib/axios/AxiosFacade";
-import { Categorie } from "./interfaces/Categorie";
-import { VisibleCategorie } from "./interfaces/VisibleCategorie";
+import { ICategorie } from "./interfaces/Categorie";
+import { IVisibleCategorie } from "./interfaces/VisibleCategorie";
 
-export async function getVisibleCategories(): Promise<VisibleCategorie[]> {
+export async function getVisibleCategories(): Promise<IVisibleCategorie[]> {
   try {
     const response = await api.get(`/visible-categories`);
     return response.data;
@@ -12,7 +12,7 @@ export async function getVisibleCategories(): Promise<VisibleCategorie[]> {
   }
 }
 
-export async function getAllCategories(): Promise<Categorie[]> {
+export async function getAllCategories(): Promise<ICategorie[]> {
   try {
     const response = await api.get(`/all-categories`);
     return response.data;

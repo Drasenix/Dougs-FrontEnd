@@ -1,6 +1,6 @@
 import React from "react";
-import "../../assets/components/ui/ButtonCategory.css";
-import { OrderingTypes } from "../../features/categories/Main";
+import "../../assets/components/ui/ButtonCategoryComponent.css";
+import { OrderingTypes } from "../../features/categories/MainComponent";
 import alphabetical from "../../assets/features/categories/img/alphabetical-order.png";
 import group from "../../assets/features/categories/img/group.png";
 import alphabetical_active from "../../assets/features/categories/img/alphabetical-order-active.png";
@@ -19,7 +19,7 @@ interface IAttributes {
   text: string;
 }
 
-function ButtonCategory(props: IButtonCategoryProps) {
+function ButtonCategoryComponent(props: IButtonCategoryProps) {
   let attributes: IAttributes;
   switch (props.ordering) {
     case OrderingTypes.Group:
@@ -64,4 +64,4 @@ function ButtonCategory(props: IButtonCategoryProps) {
   );
 }
 
-export default ButtonCategory;
+export default ButtonCategoryComponent;
