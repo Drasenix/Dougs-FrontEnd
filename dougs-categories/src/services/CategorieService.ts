@@ -1,6 +1,8 @@
 import api from "../lib/axios/AxiosFacade";
+import { Categorie } from "./interfaces/Categorie";
+import { VisibleCategorie } from "./interfaces/VisibleCategorie";
 
-export const getVisibleCategories = async () => {
+export async function getVisibleCategories(): Promise<VisibleCategorie[]> {
   try {
     const response = await api.get(`/visible-categories`);
     return response.data;
@@ -8,9 +10,9 @@ export const getVisibleCategories = async () => {
     console.error("Error fetching user:", error);
     throw new Error("Failed to fetch user");
   }
-};
+}
 
-export const getCategory = async (id: number) => {
+export async function getAllCategories(): Promise<Categorie[]> {
   try {
     const response = await api.get(`/all-categories`);
     return response.data;
@@ -18,4 +20,4 @@ export const getCategory = async (id: number) => {
     console.error("Error fetching user:", error);
     throw new Error("Failed to fetch user");
   }
-};
+}

@@ -21,7 +21,6 @@
   padding: 8px;
   gap: 8px;
 
-  background: #ffffff;
   border-radius: 4px;
   border: 0;
 
@@ -48,9 +47,17 @@
   display: flex;
   align-items: center;
 
-  color: #58676d;
-
   flex: none;
   order: 1;
   flex-grow: 0;
+}
+
+.category-order-active {
+  background: #f1f7fc;
+  color: #11abec;
+}
+
+.category-order-inactive {
+  background: #ffffff;
+  color: #58676d;
 }

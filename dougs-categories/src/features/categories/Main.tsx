@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../assets/features/categories/Main.css";
-import alphabetical from "../../assets/features/categories/img/alphabetical-order.png";
-import group from "../../assets/features/categories/img/group.png";
 import ButtonCategory from "../../components/ui/ButtonCategory";
 import List from "./List";
 
+export enum OrderingTypes {
+  Alphabetical = "alphabetical",
+  Group = "group",
+}
 function Main() {
+  const [ordering, setOrdering] = useState(OrderingTypes.Group);
+
+  function changeOrdering(ordering: OrderingTypes) {
+    setOrdering(ordering);
+  }
   return (
     <>
       <header className="Main-header">
         <p className="title-categories">Catégories</p>
         <ButtonCategory
-          class="group-categories-btn"
-          src={group}
-          alt="Boutton qui permet de regrouper les catégories par groupes"
-          text="Groupe de catégorie"
+          ordering={OrderingTypes.Group}
+          isActive={ordering === OrderingTypes.Group}          
+          changeOrdering={changeOrdering}
         ></ButtonCategory>
         <ButtonCategory
-          class="alphabetical-order-categories-btn"
-          src={alphabetical}
-          alt="Boutton qui permet de trier les catégories par ordre alphabétique"
-          text="Ordre alphabétique"
+          ordering={OrderingTypes.Alphabetical}
+          isActive={ordering === OrderingTypes.Alphabetical}
+          changeOrdering={changeOrdering}
         ></ButtonCategory>
       </header>
 
       <main>
-        <List></List>
+        <List ordering={ordering}></List>
       </main>
 
       <footer className="Main-footer">
