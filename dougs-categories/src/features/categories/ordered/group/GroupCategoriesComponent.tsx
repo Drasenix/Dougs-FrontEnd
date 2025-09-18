@@ -3,6 +3,7 @@ import "../../../../styles/features/categories/ordered/group/GroupCategoriesComp
 import { useState } from "react";
 import { CategoryComponent } from "../../CategoryComponent";
 import { OrderingTypes } from "../../MainComponent";
+import { CategoryItemComponent } from "../../CategoryItemComponent";
 interface IGroupCategoryProps {
   groupCategories: IGroupCategories;
   changeGroupContainingSelectedCategory: Function;
@@ -22,15 +23,20 @@ export function GroupCategoriesComponent(props: IGroupCategoryProps) {
       </div>
       <ul className="group-categories-list">
         {props.groupCategories.categories.map((category) => (
-          <CategoryComponent
-            ordering={OrderingTypes.Group}
+          <CategoryItemComponent
             key={category.id}
             category={category}
             isSelected={
               category.id === selectedCategory && props.containsSelectedCategory
             }
             selectCategory={changeSelectedCategory}
-          ></CategoryComponent>
+          >
+            <CategoryComponent
+              ordering={OrderingTypes.Group}
+              key={category.id}
+              category={category}
+            />
+          </CategoryItemComponent>
         ))}
       </ul>
     </li>

@@ -1,0 +1,16 @@
+.category-item {
+  outline: 1px solid #dce4ed;
+}
+
+.category-item:focus {
+  background: #f3f5f8;
+}
+
+.category-item:hover {
+  background: #f3f5f8;
+}
+
+.category-item-selected {
+  background: #f1f7fc;
+  outline: 1px solid #11abec;
+}

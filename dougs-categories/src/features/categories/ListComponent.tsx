@@ -5,7 +5,7 @@ import {
   getVisibleCategories,
 } from "../../services/CategorieService";
 import search from "../../assets/img/features/categories/search.png";
-import { ICategorie } from "../../services/interfaces/Categorie";
+import { ICategory } from "../../services/interfaces/Categorie";
 import { AlphabeticalCategoriesComponent } from "./ordered/alphabetically/AlphabeticalCategoriesComponent";
 import { GroupsCategoriesComponent } from "./ordered/group/GroupsCategoriesComponent";
 import { OrderingTypes } from "./MainComponent";
@@ -14,8 +14,8 @@ interface IListProps {
   ordering: OrderingTypes;
 }
 
-async function getCompleteVisibleCategories(): Promise<ICategorie[]> {
-  let completeVisibleCategories: ICategorie[] = [];
+async function getCompleteVisibleCategories(): Promise<ICategory[]> {
+  let completeVisibleCategories: ICategory[] = [];
   try {
     const visibleCategories = await getVisibleCategories();
     const allCategories = await getAllCategories();
@@ -32,7 +32,7 @@ async function getCompleteVisibleCategories(): Promise<ICategorie[]> {
 
 function ListComponent(props: IListProps) {
   const [completeVisibleCategories, setCompleteVisibleCategories] = useState<
-    ICategorie[]
+    ICategory[]
   >([]);
 
   useEffect(() => {
@@ -66,11 +66,9 @@ function ListComponent(props: IListProps) {
       {props.ordering === OrderingTypes.Alphabetical ? (
         <AlphabeticalCategoriesComponent
           categories={completeVisibleCategories}
-        ></AlphabeticalCategoriesComponent>
+        />
       ) : (
-        <GroupsCategoriesComponent
-          categories={completeVisibleCategories}
-        ></GroupsCategoriesComponent>
+        <GroupsCategoriesComponent categories={completeVisibleCategories} />
       )}
     </>
   );

@@ -1,17 +1,17 @@
-import { ICategorie, IGroup } from "../../../../services/interfaces/Categorie";
+import { ICategory, IGroup } from "../../../../services/interfaces/Categorie";
 import "../../../../styles/features/categories/ordered/group/GroupsCategoriesComponent.css";
 import { GroupCategoriesComponent } from "./GroupCategoriesComponent";
 import { useState } from "react";
 interface IGroupProps {
-  categories: ICategorie[];
+  categories: ICategory[];
 }
 
 export interface IGroupCategories {
   group: IGroup;
-  categories: ICategorie[];
+  categories: ICategory[];
 }
 
-function orderCategoriesByGroups(categories: ICategorie[]): IGroupCategories[] {
+function orderCategoriesByGroups(categories: ICategory[]): IGroupCategories[] {
   const allGroupCategories = new Map();
   categories.forEach((categorie) => {
     if (categorie.group) {
@@ -58,7 +58,7 @@ export function GroupsCategoriesComponent(props: IGroupProps) {
           containsSelectedCategory={
             groupHavingSelectedCategory === groupCategories.group.id
           }
-        ></GroupCategoriesComponent>
+        />
       ))}
     </ul>
   );

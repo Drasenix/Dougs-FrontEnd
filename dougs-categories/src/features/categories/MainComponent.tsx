@@ -21,16 +21,16 @@ function MainComponent() {
           ordering={OrderingTypes.Group}
           isActive={ordering === OrderingTypes.Group}
           changeOrdering={changeOrdering}
-        ></ButtonCategoryComponent>
+        />
         <ButtonCategoryComponent
           ordering={OrderingTypes.Alphabetical}
           isActive={ordering === OrderingTypes.Alphabetical}
           changeOrdering={changeOrdering}
-        ></ButtonCategoryComponent>
+        />
       </header>
 
       <main className="Main-main">
-        <ListComponent ordering={ordering}></ListComponent>
+        <ListComponent ordering={ordering} />
       </main>
 
       <footer className="Main-footer">

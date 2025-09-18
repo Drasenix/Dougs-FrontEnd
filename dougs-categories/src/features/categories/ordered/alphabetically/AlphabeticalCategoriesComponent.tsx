@@ -1,14 +1,15 @@
-import { ICategorie } from "../../../../services/interfaces/Categorie";
+import { ICategory } from "../../../../services/interfaces/Categorie";
 import "../../../../styles/features/categories/ordered/alphabetically/AlphabeticalCategoriesComponent.css";
 import { CategoryComponent } from "../../CategoryComponent";
+import { CategoryItemComponent } from "../../CategoryItemComponent";
 import { OrderingTypes } from "../../MainComponent";
 import { useState } from "react";
 
 interface IAlpheticalProps {
-  categories: ICategorie[];
+  categories: ICategory[];
 }
 
-function orderCategoriesAlphabetically(categories: ICategorie[]) {
+function orderCategoriesAlphabetically(categories: ICategory[]) {
   categories.sort(function (a, b) {
     if (a.wording < b.wording) {
       return -1;
@@ -29,20 +30,25 @@ export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
     setSelectedCategory(id_category);
   }
 
-  const categories: ICategorie[] = orderCategoriesAlphabetically(
+  const categories: ICategory[] = orderCategoriesAlphabetically(
     props.categories
   );
 
   return (
     <ul className="alphabetical-categories-list">
       {categories.map((category) => (
-        <CategoryComponent
-          ordering={OrderingTypes.Alphabetical}
+        <CategoryItemComponent
           key={category.id}
           category={category}
           isSelected={category.id === selectedCategory}
           selectCategory={changeSelectedCategory}
-        ></CategoryComponent>
+        >
+          <CategoryComponent
+            ordering={OrderingTypes.Alphabetical}
+            key={category.id}
+            category={category}
+          />
+        </CategoryItemComponent>
       ))}
     </ul>
   );
