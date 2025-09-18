@@ -1,6 +1,7 @@
 import { ICategorie } from "../../../../services/interfaces/Categorie";
 import "../../../../styles/features/categories/ordered/alphabetically/AlphabeticalCategoriesComponent.css";
-import { AlphabeticalCategoryComponent } from "./AlphabeticalCategoryComponent";
+import { CategoryComponent } from "../../CategoryComponent";
+import { OrderingTypes } from "../../MainComponent";
 import { useState } from "react";
 
 interface IAlpheticalProps {
@@ -35,12 +36,13 @@ export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
   return (
     <ul className="alphabetical-categories-list">
       {categories.map((category) => (
-        <AlphabeticalCategoryComponent
+        <CategoryComponent
+          ordering={OrderingTypes.Alphabetical}
           key={category.id}
           category={category}
           isSelected={category.id === selectedCategory}
           selectCategory={changeSelectedCategory}
-        ></AlphabeticalCategoryComponent>
+        ></CategoryComponent>
       ))}
     </ul>
   );

@@ -1,25 +1,47 @@
-.alphabetical-category-item {
+.categorie-wording {
+  font-family: "Eina03-SemiBold";
+  font-size: 14px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+
+  color: #001a25;
+}
+.categorie-description {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+
+  display: flex;
+  align-items: center;
+
+  color: #636970;
+}
+
+.category-item {
   outline: 1px solid #dce4ed;
 }
 
-.alphabetical-category-item:focus {
+.category-item:focus {
   background: #f3f5f8;
 }
 
-.alphabetical-category-item:hover {
+.category-item:hover {
   background: #f3f5f8;
 }
 
-.alphabetical-category-item-selected {
+.category-item-selected {
   background: #f1f7fc;
   outline: 1px solid #11abec;
 }
 
-.alphabetical-category-content {
+.category-content {
   padding: 16px;
 }
 
-.alphabetical-category-name-title {
+.category-name-title {
   display: flex;
   flex-direction: row;
   align-items: center;
