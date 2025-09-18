@@ -8,10 +8,13 @@ interface ICategoryProps {
 }
 
 export function CategoryComponent(props: ICategoryProps) {
+  const class_name_color = props.category.group?.color;
   return (
     <div className={"category-content"}>
       {props.ordering === OrderingTypes.Alphabetical && (
-        <div className="category-name-title">{props.category.group?.name}</div>
+        <div className={"category-name-title " + class_name_color}>
+          {props.category.group?.name}
+        </div>
       )}
       <p className="categorie-wording">{props.category.wording}</p>
       <p className="categorie-description">{props.category.description}</p>

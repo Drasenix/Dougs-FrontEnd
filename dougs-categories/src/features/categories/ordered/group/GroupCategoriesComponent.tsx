@@ -16,9 +16,11 @@ export function GroupCategoriesComponent(props: IGroupCategoryProps) {
     setSelectedCategory(id_category);
     props.changeGroupContainingSelectedCategory(props.groupCategories.group.id);
   }
+
+  const class_name_color = props.groupCategories.group.color;
   return (
     <li>
-      <div className="group-categories-title">
+      <div className={"group-categories-title " + class_name_color}>
         {props.groupCategories.group.name}
       </div>
       <ul className="group-categories-list">

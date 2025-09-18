@@ -40,7 +40,27 @@
   line-height: 16px;
   display: flex;
   align-items: center;
-
-  color: #11abec;
   width: fit-content;
+}
+
+.category-name-title.m-blue {
+  background: #f1f7fc;
+  color: #11abec;
+}
+
+.category-name-title.m-red {
+  background: #ffece6;
+  color: #fd755f;
+}
+.category-name-title.m-pink {
+  background: #fcf6ff;
+  color: #c45ffd;
+}
+.category-name-title.m-green {
+  background: #e9f9eb;
+  color: #4cca5d;
+}
+.category-name-title.m-purple {
+  background: #f7f6ff;
+  color: #755ffd;
 }

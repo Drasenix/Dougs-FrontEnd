@@ -1,3 +1,45 @@
+.group-categories-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 40px 8px 16px;
+  gap: 10px;
+
+  border-radius: 0px;
+
+  height: 16px;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.group-categories-title.m-blue {
+  background: #f1f7fc;
+  color: #11abec;
+}
+
+.group-categories-title.m-red {
+  background: #ffece6;
+  color: #fd755f;
+}
+.group-categories-title.m-pink {
+  background: #fcf6ff;
+  color: #c45ffd;
+}
+.group-categories-title.m-green {
+  background: #e9f9eb;
+  color: #4cca5d;
+}
+.group-categories-title.m-purple {
+  background: #f7f6ff;
+  color: #755ffd;
+}
+
 .group-categories-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
