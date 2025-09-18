@@ -7,6 +7,7 @@
   flex: none;
   order: 0;
   flex-grow: 0;
+  width: 100%;
 }
 
 .list-categories-search {
@@ -18,7 +19,7 @@
   padding: 9.5px 9px;
   gap: 8px;
 
-  width: 877px;
+  width: 81%;
   height: 35px;
 
   background: #ffffff;
@@ -49,7 +50,7 @@
   display: flex;
   align-items: center;
 
-  width: 820px;
+  width: 20%;
   height: 30px;
   color: #001a25;
 
@@ -81,8 +82,6 @@
   flex: none;
   order: 1;
   flex-grow: 0;
-
-  margin: 0 auto;
 
   font-family: "Open Sans";
   font-style: normal;

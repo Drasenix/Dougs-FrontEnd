@@ -6,7 +6,7 @@ import {
 } from "../../services/CategorieService";
 import search from "../../assets/features/categories/img/search.png";
 import { ICategorie } from "../../services/interfaces/Categorie";
-import { AlphabeticalComponent } from "./ordered/AlphabeticalComponent";
+import { AlphabeticalCategoriesComponent } from "./ordered/AlphabeticalCategoriesComponent";
 import { GroupComponent } from "./ordered/GroupComponent";
 import { OrderingTypes } from "./MainComponent";
 
@@ -64,9 +64,9 @@ function ListComponent(props: IListProps) {
         </select>
       </div>
       {props.ordering === OrderingTypes.Alphabetical ? (
-        <AlphabeticalComponent
+        <AlphabeticalCategoriesComponent
           categories={completeVisibleCategories}
-        ></AlphabeticalComponent>
+        ></AlphabeticalCategoriesComponent>
       ) : (
         <GroupComponent categories={completeVisibleCategories}></GroupComponent>
       )}

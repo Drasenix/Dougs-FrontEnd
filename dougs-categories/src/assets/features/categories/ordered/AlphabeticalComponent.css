@@ -6,7 +6,20 @@
   padding: 0;
 }
 .category-item {
-  outline: 0.5px solid #dce4ed;
+  outline: 1px solid #dce4ed;
+}
+
+.category-item:focus {
+  background: #dce4ed;
+}
+
+.category-item:hover {
+  background: #dce4ed;
+}
+
+.category-item-selected {
+  background: #f1f7fc;
+  outline: 1px solid #11abec;
 }
 
 .category-content {
