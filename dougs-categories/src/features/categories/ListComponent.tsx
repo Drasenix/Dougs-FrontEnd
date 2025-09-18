@@ -17,7 +17,7 @@ interface IListProps {
   ordering: OrderingTypes;
 }
 
-async function getCompleteVisibleCategories(): Promise<ICategory[]> {
+async function getAllVisibleCategories(): Promise<ICategory[]> {
   let completeVisibleCategories: ICategory[] = [];
   try {
     const visibleCategories = await getVisibleCategories();
@@ -67,21 +67,28 @@ function orderCategoriesAlphabetically(categories: ICategory[]) {
 }
 
 function ListComponent(props: IListProps) {
-  const [completeVisibleCategories, setCompleteVisibleCategories] = useState<
-    ICategory[]
-  >([]);
+  const [allVisibleCategories, setAllVisibleCategories] = useState<ICategory[]>(
+    []
+  );
+
+  const [filterGroupId, setFilterGroupId] = useState<number | undefined>();
 
   useEffect(() => {
-    getCompleteVisibleCategories().then((value) =>
-      setCompleteVisibleCategories(value)
-    );
+    getAllVisibleCategories().then((value) => setAllVisibleCategories(value));
   }, []);
 
-  const categoriesGrouped: IGroupCategories[] = orderCategoriesByGroups(
-    completeVisibleCategories
-  );
+  function changeFilterGroupId(group_id: string) {
+    if (group_id === "all") {
+      setFilterGroupId(undefined);
+    } else {
+      setFilterGroupId(Number(group_id));
+    }
+  }
+
+  const allCategoriesGrouped: IGroupCategories[] =
+    orderCategoriesByGroups(allVisibleCategories);
   const categoriesInAlphabeticalOrder: ICategory[] =
-    orderCategoriesAlphabetically(completeVisibleCategories);
+    orderCategoriesAlphabetically(allVisibleCategories);
 
   return (
     <>
@@ -98,10 +105,19 @@ function ListComponent(props: IListProps) {
             placeholder="Rechercher une catégorie"
           />
         </div>
-        <select className="list-categories-select">
+        <select
+          className="list-categories-select"
+          onChange={(event) => changeFilterGroupId(event.target.value)}
+        >
           <option value="all">Tous les groupes de catégories</option>
-          {categoriesGrouped.map((groupCategories) => (
-            <option value={groupCategories.group.id}>
+          {allCategoriesGrouped.map((groupCategories) => (
+            <option
+              key={groupCategories.group.id}
+              value={groupCategories.group.id}
+              onClick={() =>
+                changeFilterGroupId(groupCategories.group.id.toString())
+              }
+            >
               {groupCategories.group.name}
             </option>
           ))}
@@ -109,10 +125,25 @@ function ListComponent(props: IListProps) {
       </div>
       {props.ordering === OrderingTypes.Alphabetical ? (
         <AlphabeticalCategoriesComponent
-          categories={categoriesInAlphabeticalOrder}
+          categories={
+            !!filterGroupId
+              ? categoriesInAlphabeticalOrder.filter(
+                  (category) => category.group?.id === filterGroupId
+                )
+              : categoriesInAlphabeticalOrder
+          }
         />
       ) : (
-        <GroupsCategoriesComponent groupsCategories={categoriesGrouped} />
+        <GroupsCategoriesComponent
+          groupsCategories={
+            !!filterGroupId
+              ? allCategoriesGrouped.filter(
+                  (groupCategories: IGroupCategories) =>
+                    groupCategories.group.id === filterGroupId
+                )
+              : allCategoriesGrouped
+          }
+        />
       )}
     </>
   );
