@@ -1,32 +1,25 @@
-.categories-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.category-item {
+.alphabetical-category-item {
   outline: 1px solid #dce4ed;
 }
 
-.category-item:focus {
-  background: #dce4ed;
+.alphabetical-category-item:focus {
+  background: #f3f5f8;
 }
 
-.category-item:hover {
-  background: #dce4ed;
+.alphabetical-category-item:hover {
+  background: #f3f5f8;
 }
 
-.category-item-selected {
+.alphabetical-category-item-selected {
   background: #f1f7fc;
   outline: 1px solid #11abec;
 }
 
-.category-content {
+.alphabetical-category-content {
   padding: 16px;
 }
 
-.category-name-title {
+.alphabetical-category-name-title {
   display: flex;
   flex-direction: row;
   align-items: center;

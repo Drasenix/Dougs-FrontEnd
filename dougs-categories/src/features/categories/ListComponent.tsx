@@ -7,7 +7,7 @@ import {
 import search from "../../assets/features/categories/img/search.png";
 import { ICategorie } from "../../services/interfaces/Categorie";
 import { AlphabeticalCategoriesComponent } from "./ordered/AlphabeticalCategoriesComponent";
-import { GroupComponent } from "./ordered/GroupComponent";
+import { GroupsCategoriesComponent } from "./ordered/GroupsCategoriesComponent";
 import { OrderingTypes } from "./MainComponent";
 
 interface IListProps {
@@ -68,7 +68,9 @@ function ListComponent(props: IListProps) {
           categories={completeVisibleCategories}
         ></AlphabeticalCategoriesComponent>
       ) : (
-        <GroupComponent categories={completeVisibleCategories}></GroupComponent>
+        <GroupsCategoriesComponent
+          categories={completeVisibleCategories}
+        ></GroupsCategoriesComponent>
       )}
     </>
   );

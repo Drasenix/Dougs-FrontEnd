@@ -1,10 +1,11 @@
 import { ICategorie, IGroup } from "../../../services/interfaces/Categorie";
-
+import "../../../assets/features/categories/ordered/GroupsCategoriesComponent.css";
+import { GroupCategoriesComponent } from "./GroupCategoriesComponent";
 interface IGroupProps {
   categories: ICategorie[];
 }
 
-interface IGroupCategories {
+export interface IGroupCategories {
   group: IGroup;
   categories: ICategorie[];
 }
@@ -28,15 +29,24 @@ function orderCategoriesByGroups(categories: ICategorie[]): IGroupCategories[] {
     }
   });
 
-  return Array.from(allGroupCategories, ([group, categories]) => ({
-    group,
-    categories,
+  return Array.from(allGroupCategories, ([id, groupCategory]) => ({
+    group: groupCategory.group,
+    categories: groupCategory.categories,
   }));
 }
 
-export function GroupComponent(props: IGroupProps) {
-  const groupCategories: IGroupCategories[] = orderCategoriesByGroups(
+export function GroupsCategoriesComponent(props: IGroupProps) {
+  const groupsCategories: IGroupCategories[] = orderCategoriesByGroups(
     props.categories
   );
-  return <p>group</p>;
+  return (
+    <ul className="groups-categories-list">
+      {groupsCategories.map((groupCategories) => (
+        <GroupCategoriesComponent
+          key={groupCategories.group.id}
+          groupCategories={groupCategories}
+        ></GroupCategoriesComponent>
+      ))}
+    </ul>
+  );
 }

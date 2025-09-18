@@ -1,5 +1,5 @@
 import { ICategorie } from "../../../services/interfaces/Categorie";
-import "../../../assets/features/categories/ordered/AlphabeticalComponent.css";
+import "../../../assets/features/categories/ordered/AlphabeticalCategoriesComponent.css";
 import { AlphabeticalCategoryComponent } from "./AlphabeticalCategoryComponent";
 import { useState } from "react";
 
@@ -33,7 +33,7 @@ export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
   );
 
   return (
-    <ul className="categories-list">
+    <ul className="alphabetical-categories-list">
       {categories.map((category) => (
         <AlphabeticalCategoryComponent
           key={category.id}
