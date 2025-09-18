@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "../../assets/features/categories/ListComponent.css";
+import "../../styles/features/categories/ListComponent.css";
 import {
   getAllCategories,
   getVisibleCategories,
 } from "../../services/CategorieService";
-import search from "../../assets/features/categories/img/search.png";
+import search from "../../assets/img/features/categories/search.png";
 import { ICategorie } from "../../services/interfaces/Categorie";
-import { AlphabeticalCategoriesComponent } from "./ordered/AlphabeticalCategoriesComponent";
-import { GroupsCategoriesComponent } from "./ordered/GroupsCategoriesComponent";
+import { AlphabeticalCategoriesComponent } from "./ordered/alphabetically/AlphabeticalCategoriesComponent";
+import { GroupsCategoriesComponent } from "./ordered/group/GroupsCategoriesComponent";
 import { OrderingTypes } from "./MainComponent";
 
 interface IListProps {

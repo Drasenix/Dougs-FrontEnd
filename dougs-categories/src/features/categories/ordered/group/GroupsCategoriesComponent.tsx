@@ -1,5 +1,5 @@
-import { ICategorie, IGroup } from "../../../services/interfaces/Categorie";
-import "../../../assets/features/categories/ordered/GroupsCategoriesComponent.css";
+import { ICategorie, IGroup } from "../../../../services/interfaces/Categorie";
+import "../../../../styles/features/categories/ordered/group/GroupsCategoriesComponent.css";
 import { GroupCategoriesComponent } from "./GroupCategoriesComponent";
 import { useState } from "react";
 interface IGroupProps {

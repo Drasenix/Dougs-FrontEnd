@@ -1,4 +1,4 @@
-import "../../assets/features/categories/CategorieComponent.css";
+import "../../styles/features/categories/CategorieComponent.css";
 interface ICategorieProps {
   wording: string;
   description: string;

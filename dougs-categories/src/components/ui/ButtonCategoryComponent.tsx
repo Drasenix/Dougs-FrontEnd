@@ -1,10 +1,10 @@
 import React from "react";
-import "../../assets/components/ui/ButtonCategoryComponent.css";
+import "../../styles/components/ui/ButtonCategoryComponent.css";
 import { OrderingTypes } from "../../features/categories/MainComponent";
-import alphabetical from "../../assets/features/categories/img/alphabetical-order.png";
-import group from "../../assets/features/categories/img/group.png";
-import alphabetical_active from "../../assets/features/categories/img/alphabetical-order-active.png";
-import group_active from "../../assets/features/categories/img/group-active.png";
+import alphabetical from "../../assets/img/features/categories/ordered/alphabetically/alphabetical-order.png";
+import alphabetical_active from "../../assets/img/features/categories/ordered/alphabetically/alphabetical-order-active.png"; //
+import group from "../../assets/img/features/categories/ordered/group/group.png";
+import group_active from "../../assets/img/features/categories/ordered/group/group-active.png";
 
 interface IButtonCategoryProps {
   ordering: OrderingTypes;

@@ -1,5 +1,5 @@
 import MainComponent from "./features/categories/MainComponent";
-import "../src/assets/App/App.css";
+import "../src/styles/App/App.css";
 function App() {
   return (
     <div className="App">

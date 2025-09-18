@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../assets/features/categories/MainComponent.css";
+import "../../styles/features/categories/MainComponent.css";
 import ButtonCategoryComponent from "../../components/ui/ButtonCategoryComponent";
 import ListComponent from "./ListComponent";
 

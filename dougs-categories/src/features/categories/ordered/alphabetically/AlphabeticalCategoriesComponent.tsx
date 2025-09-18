@@ -1,5 +1,5 @@
-import { ICategorie } from "../../../services/interfaces/Categorie";
-import "../../../assets/features/categories/ordered/AlphabeticalCategoriesComponent.css";
+import { ICategorie } from "../../../../services/interfaces/Categorie";
+import "../../../../styles/features/categories/ordered/alphabetically/AlphabeticalCategoriesComponent.css";
 import { AlphabeticalCategoryComponent } from "./AlphabeticalCategoryComponent";
 import { useState } from "react";
 

@@ -1,14 +1,16 @@
-import { ICategorie } from "../../../services/interfaces/Categorie";
-import { CategorieComponent } from "../CategorieComponent";
-import "../../../assets/features/categories/ordered/GroupCategoryComponent.css";
+import { CategorieComponent } from "../../CategorieComponent";
+import { ICategorie } from "../../../../services/interfaces/Categorie";
+import "../../../../styles/features/categories/ordered/alphabetically/AlphabeticalCategoryComponent.css";
 
-interface IGroupCategoryProps {
+interface IAlphabeticalCategoryProps {
   category: ICategorie;
   isSelected: boolean;
   selectCategory: Function;
 }
 
-export function GroupCategoryComponent(props: IGroupCategoryProps) {
+export function AlphabeticalCategoryComponent(
+  props: IAlphabeticalCategoryProps
+) {
   function handleSelectCategory() {
     props.selectCategory(props.category.id);
   }
@@ -18,18 +20,22 @@ export function GroupCategoryComponent(props: IGroupCategoryProps) {
       handleSelectCategory();
     }
   };
+
   return (
     <li
       tabIndex={0}
       className={
         props.isSelected
-          ? "group-category-item-selected"
-          : "group-category-item"
+          ? "alphabetical-category-item-selected"
+          : "alphabetical-category-item"
       }
       onClick={() => handleSelectCategory()}
       onKeyDown={handleKeyDown}
     >
-      <div className="group-category-content">
+      <div className="alphabetical-category-content">
+        <div className="alphabetical-category-name-title">
+          {props.category.group?.name}
+        </div>
         <CategorieComponent
           wording={props.category.wording}
           description={props.category.description}
