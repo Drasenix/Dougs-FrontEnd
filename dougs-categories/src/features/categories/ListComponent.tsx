@@ -5,9 +5,12 @@ import {
   getVisibleCategories,
 } from "../../services/CategorieService";
 import search from "../../assets/img/features/categories/search.png";
-import { ICategory } from "../../services/interfaces/Categorie";
+import { ICategory, IGroup } from "../../services/interfaces/Categorie";
 import { AlphabeticalCategoriesComponent } from "./ordered/alphabetically/AlphabeticalCategoriesComponent";
-import { GroupsCategoriesComponent } from "./ordered/group/GroupsCategoriesComponent";
+import {
+  GroupsCategoriesComponent,
+  IGroupCategories,
+} from "./ordered/group/GroupsCategoriesComponent";
 import { OrderingTypes } from "./MainComponent";
 
 interface IListProps {
@@ -30,6 +33,39 @@ async function getCompleteVisibleCategories(): Promise<ICategory[]> {
   return completeVisibleCategories;
 }
 
+function orderCategoriesByGroups(categories: ICategory[]): IGroupCategories[] {
+  const allGroupCategories = new Map();
+  categories.forEach((categorie) => {
+    if (categorie.group) {
+      const group: IGroup = categorie.group;
+      let groupCategories: IGroupCategories;
+      if (allGroupCategories.get(group.id)) {
+        groupCategories = allGroupCategories.get(group.id);
+        groupCategories.categories.push(categorie);
+      } else {
+        groupCategories = {
+          group,
+          categories: [categorie],
+        };
+      }
+      allGroupCategories.set(group.id, groupCategories);
+    }
+  });
+
+  return Array.from(allGroupCategories, ([id, groupCategory]) => ({
+    group: groupCategory.group,
+    categories: groupCategory.categories,
+  }));
+}
+
+function orderCategoriesAlphabetically(categories: ICategory[]) {
+  categories.sort(function (a, b) {
+    return a.wording.localeCompare(b.wording);
+  });
+
+  return categories;
+}
+
 function ListComponent(props: IListProps) {
   const [completeVisibleCategories, setCompleteVisibleCategories] = useState<
     ICategory[]
@@ -40,6 +76,12 @@ function ListComponent(props: IListProps) {
       setCompleteVisibleCategories(value)
     );
   }, []);
+
+  const categoriesGrouped: IGroupCategories[] = orderCategoriesByGroups(
+    completeVisibleCategories
+  );
+  const categoriesInAlphabeticalOrder: ICategory[] =
+    orderCategoriesAlphabetically(completeVisibleCategories);
 
   return (
     <>
@@ -58,17 +100,19 @@ function ListComponent(props: IListProps) {
         </div>
         <select className="list-categories-select">
           <option value="all">Tous les groupes de catégories</option>
-          <option value="one">Groupe 1</option>
-          <option value="two">Groupe 2</option>
-          <option value="three">Groupe 3</option>
+          {categoriesGrouped.map((groupCategories) => (
+            <option value={groupCategories.group.id}>
+              {groupCategories.group.name}
+            </option>
+          ))}
         </select>
       </div>
       {props.ordering === OrderingTypes.Alphabetical ? (
         <AlphabeticalCategoriesComponent
-          categories={completeVisibleCategories}
+          categories={categoriesInAlphabeticalOrder}
         />
       ) : (
-        <GroupsCategoriesComponent categories={completeVisibleCategories} />
+        <GroupsCategoriesComponent groupsCategories={categoriesGrouped} />
       )}
     </>
   );

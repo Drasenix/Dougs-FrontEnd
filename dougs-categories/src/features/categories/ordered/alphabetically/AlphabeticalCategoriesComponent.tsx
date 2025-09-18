@@ -9,20 +9,6 @@ interface IAlpheticalProps {
   categories: ICategory[];
 }
 
-function orderCategoriesAlphabetically(categories: ICategory[]) {
-  categories.sort(function (a, b) {
-    if (a.wording < b.wording) {
-      return -1;
-    }
-    if (a.wording > b.wording) {
-      return 1;
-    }
-    return 0;
-  });
-
-  return categories;
-}
-
 export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
   const [selectedCategory, setSelectedCategory] = useState(-1);
 
@@ -30,13 +16,9 @@ export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
     setSelectedCategory(id_category);
   }
 
-  const categories: ICategory[] = orderCategoriesAlphabetically(
-    props.categories
-  );
-
   return (
     <ul className="alphabetical-categories-list">
-      {categories.map((category) => (
+      {props.categories.map((category) => (
         <CategoryItemComponent
           key={category.id}
           category={category}

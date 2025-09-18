@@ -3,37 +3,12 @@ import "../../../../styles/features/categories/ordered/group/GroupsCategoriesCom
 import { GroupCategoriesComponent } from "./GroupCategoriesComponent";
 import { useState } from "react";
 interface IGroupProps {
-  categories: ICategory[];
+  groupsCategories: IGroupCategories[];
 }
 
 export interface IGroupCategories {
   group: IGroup;
   categories: ICategory[];
-}
-
-function orderCategoriesByGroups(categories: ICategory[]): IGroupCategories[] {
-  const allGroupCategories = new Map();
-  categories.forEach((categorie) => {
-    if (categorie.group) {
-      const group: IGroup = categorie.group;
-      let groupCategories: IGroupCategories;
-      if (allGroupCategories.get(group.id)) {
-        groupCategories = allGroupCategories.get(group.id);
-        groupCategories.categories.push(categorie);
-      } else {
-        groupCategories = {
-          group,
-          categories: [categorie],
-        };
-      }
-      allGroupCategories.set(group.id, groupCategories);
-    }
-  });
-
-  return Array.from(allGroupCategories, ([id, groupCategory]) => ({
-    group: groupCategory.group,
-    categories: groupCategory.categories,
-  }));
 }
 
 export function GroupsCategoriesComponent(props: IGroupProps) {
@@ -43,12 +18,10 @@ export function GroupsCategoriesComponent(props: IGroupProps) {
   function changeGroupHavingSelectedCategory(id_group: number) {
     setGroupHavingSelectedCategory(id_group);
   }
-  const groupsCategories: IGroupCategories[] = orderCategoriesByGroups(
-    props.categories
-  );
+
   return (
     <ul className="groups-categories-list">
-      {groupsCategories.map((groupCategories) => (
+      {props.groupsCategories.map((groupCategories) => (
         <GroupCategoriesComponent
           key={groupCategories.group.id}
           groupCategories={groupCategories}
