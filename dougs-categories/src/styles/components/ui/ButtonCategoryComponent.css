@@ -8,10 +8,6 @@
   background: #ffffff;
   border-radius: 4px;
   border: 0;
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
 
 .alphabetical-order-categories-btn {
@@ -23,19 +19,11 @@
 
   border-radius: 4px;
   border: 0;
-
-  flex: none;
-  order: 2;
-  flex-grow: 0;
 }
 
 .category-order-btn-img {
   width: 14px;
   height: 14px;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .category-order-btn-text {
@@ -46,10 +34,6 @@
   line-height: 120%;
   display: flex;
   align-items: center;
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
 
 .category-order-active {
