@@ -57,10 +57,6 @@
   align-items: center;
 
   color: #001a25;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .category-select-btn {
@@ -74,10 +70,6 @@
   background: #11abec;
   border-radius: 4px;
   border: 0;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .category-select-btn-txt {
@@ -90,8 +82,4 @@
   align-items: center;
 
   color: #ffffff;
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }

@@ -1,6 +1,7 @@
 import { ICategorie, IGroup } from "../../../services/interfaces/Categorie";
 import "../../../assets/features/categories/ordered/GroupsCategoriesComponent.css";
 import { GroupCategoriesComponent } from "./GroupCategoriesComponent";
+import { useState } from "react";
 interface IGroupProps {
   categories: ICategorie[];
 }
@@ -36,6 +37,12 @@ function orderCategoriesByGroups(categories: ICategorie[]): IGroupCategories[] {
 }
 
 export function GroupsCategoriesComponent(props: IGroupProps) {
+  const [groupHavingSelectedCategory, setGroupHavingSelectedCategory] =
+    useState(-1);
+
+  function changeGroupHavingSelectedCategory(id_group: number) {
+    setGroupHavingSelectedCategory(id_group);
+  }
   const groupsCategories: IGroupCategories[] = orderCategoriesByGroups(
     props.categories
   );
@@ -45,6 +52,12 @@ export function GroupsCategoriesComponent(props: IGroupProps) {
         <GroupCategoriesComponent
           key={groupCategories.group.id}
           groupCategories={groupCategories}
+          changeGroupContainingSelectedCategory={
+            changeGroupHavingSelectedCategory
+          }
+          containsSelectedCategory={
+            groupHavingSelectedCategory === groupCategories.group.id
+          }
         ></GroupCategoriesComponent>
       ))}
     </ul>

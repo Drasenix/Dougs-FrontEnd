@@ -22,10 +22,10 @@ function orderCategoriesAlphabetically(categories: ICategorie[]) {
 }
 
 export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
-  const [selectedCategory, setSelectedCategorie] = useState(-1);
+  const [selectedCategory, setSelectedCategory] = useState(-1);
 
   function changeSelectedCategory(id_category: number) {
-    setSelectedCategorie(id_category);
+    setSelectedCategory(id_category);
   }
 
   const categories: ICategorie[] = orderCategoriesAlphabetically(

@@ -4,12 +4,15 @@ import { GroupCategoryComponent } from "./GroupCategoryComponent";
 import { useState } from "react";
 interface IGroupCategoryProps {
   groupCategories: IGroupCategories;
+  changeGroupContainingSelectedCategory: Function;
+  containsSelectedCategory: boolean;
 }
 export function GroupCategoriesComponent(props: IGroupCategoryProps) {
-  const [selectedCategory, setSelectedCategorie] = useState(-1);
+  const [selectedCategory, setSelectedCategory] = useState(-1);
 
   function changeSelectedCategory(id_category: number) {
-    setSelectedCategorie(id_category);
+    setSelectedCategory(id_category);
+    props.changeGroupContainingSelectedCategory(props.groupCategories.group.id);
   }
   return (
     <li>
@@ -21,7 +24,9 @@ export function GroupCategoriesComponent(props: IGroupCategoryProps) {
           <GroupCategoryComponent
             key={category.id}
             category={category}
-            isSelected={category.id === selectedCategory}
+            isSelected={
+              category.id === selectedCategory && props.containsSelectedCategory
+            }
             selectCategory={changeSelectedCategory}
           ></GroupCategoryComponent>
         ))}
