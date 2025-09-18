@@ -16,6 +16,7 @@
   line-height: 16px;
   display: flex;
   align-items: center;
+  background: #dce4ed;
 }
 
 .group-categories-title.m-blue {
