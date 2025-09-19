@@ -23,7 +23,7 @@ export function GroupCategoriesComponent(props: IGroupCategoryProps) {
       ? "even-nb-categories"
       : "odd-nb-categories";
   return (
-    <li>
+    <li className="group-categories-li">
       <div className={"group-categories-title " + class_name_color}>
         {props.groupCategories.group.name}
       </div>

@@ -30,7 +30,9 @@ function MainComponent() {
       </header>
 
       <main className="Main-main">
-        <ListComponent ordering={ordering} />
+        <div className="main-container">
+          <ListComponent ordering={ordering} />
+        </div>
       </main>
 
       <footer className="Main-footer">
