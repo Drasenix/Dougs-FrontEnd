@@ -22,7 +22,7 @@ export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
       : "odd-nb-categories";
 
   return (
-    <div className="alphabetical-categories-list-container">
+    <>
       <ul className={"alphabetical-categories-list " + class_name_even_or_odd}>
         {props.categories.map((category) => (
           <CategoryItemComponent
@@ -39,6 +39,6 @@ export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
           </CategoryItemComponent>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
