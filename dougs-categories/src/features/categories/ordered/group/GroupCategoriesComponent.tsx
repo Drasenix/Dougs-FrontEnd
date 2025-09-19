@@ -18,12 +18,16 @@ export function GroupCategoriesComponent(props: IGroupCategoryProps) {
   }
 
   const class_name_color = props.groupCategories.group.color;
+  const class_name_even_or_odd: string =
+    props.groupCategories.categories.length % 2 === 0
+      ? "even-nb-categories"
+      : "odd-nb-categories";
   return (
     <li>
       <div className={"group-categories-title " + class_name_color}>
         {props.groupCategories.group.name}
       </div>
-      <ul className="group-categories-list">
+      <ul className={"group-categories-list " + class_name_even_or_odd}>
         {props.groupCategories.categories.map((category) => (
           <CategoryItemComponent
             key={category.id}

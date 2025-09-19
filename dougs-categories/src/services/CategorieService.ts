@@ -7,8 +7,8 @@ export async function getVisibleCategories(): Promise<IVisibleCategorie[]> {
     const response = await api.get(`/visible-categories`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
-    throw new Error("Failed to fetch user");
+    console.error("Error fetching visible categories:", error);
+    throw new Error("Failed to fetch visible categories");
   }
 }
 
@@ -17,7 +17,7 @@ export async function getAllCategories(): Promise<ICategory[]> {
     const response = await api.get(`/all-categories`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching user:", error);
-    throw new Error("Failed to fetch user");
+    console.error("Error fetching all categories:", error);
+    throw new Error("Failed to fetch all categories");
   }
 }
