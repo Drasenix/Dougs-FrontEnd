@@ -66,12 +66,43 @@ function orderCategoriesAlphabetically(categories: ICategory[]) {
   return categories;
 }
 
+function applyFilterOnCategories(filter: string, categories: ICategory[]) {
+  if (filter.length === 0) {
+    return categories;
+  }
+  return categories.filter((category) => {
+    return (
+      category.wording
+        ?.toLocaleLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(
+          filter
+            .toLocaleLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+        ) ||
+      category.description
+        ?.toLocaleLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(
+          filter
+            .toLocaleLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+        )
+    );
+  });
+}
+
 function ListComponent(props: IListProps) {
   const [allVisibleCategories, setAllVisibleCategories] = useState<ICategory[]>(
     []
   );
 
   const [filterGroupId, setFilterGroupId] = useState<number | undefined>();
+  const [filterCategories, setFilterCategories] = useState<string>("");
 
   useEffect(() => {
     getAllVisibleCategories().then((value) => setAllVisibleCategories(value));
@@ -87,8 +118,17 @@ function ListComponent(props: IListProps) {
 
   const allCategoriesGrouped: IGroupCategories[] =
     orderCategoriesByGroups(allVisibleCategories);
-  const categoriesInAlphabeticalOrder: ICategory[] =
-    orderCategoriesAlphabetically(allVisibleCategories);
+
+  const filteredVisibleCategories: ICategory[] = applyFilterOnCategories(
+    filterCategories,
+    allVisibleCategories
+  );
+
+  const filteredCategoriesGrouped: IGroupCategories[] = orderCategoriesByGroups(
+    filteredVisibleCategories
+  );
+  const filteredCategoriesInAlphabeticalOrder: ICategory[] =
+    orderCategoriesAlphabetically(filteredVisibleCategories);
 
   return (
     <>
@@ -100,6 +140,9 @@ function ListComponent(props: IListProps) {
             alt="Loupe"
           />
           <input
+            role="search"
+            value={filterCategories}
+            onInput={(e) => setFilterCategories(e.currentTarget.value)}
             className="list-categories-search-input"
             type="text"
             placeholder="Rechercher une catégorie"
@@ -127,21 +170,21 @@ function ListComponent(props: IListProps) {
         <AlphabeticalCategoriesComponent
           categories={
             !!filterGroupId
-              ? categoriesInAlphabeticalOrder.filter(
+              ? filteredCategoriesInAlphabeticalOrder.filter(
                   (category) => category.group?.id === filterGroupId
                 )
-              : categoriesInAlphabeticalOrder
+              : filteredCategoriesInAlphabeticalOrder
           }
         />
       ) : (
         <GroupsCategoriesComponent
           groupsCategories={
             !!filterGroupId
-              ? allCategoriesGrouped.filter(
+              ? filteredCategoriesGrouped.filter(
                   (groupCategories: IGroupCategories) =>
                     groupCategories.group.id === filterGroupId
                 )
-              : allCategoriesGrouped
+              : filteredCategoriesGrouped
           }
         />
       )}
