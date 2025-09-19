@@ -11,11 +11,11 @@
   border-right: solid 1px #dce4ed;
 }
 
-.odd-nb-categories > .category-item:nth-last-child(-n + 1) {
+.odd-nb-categories .category-item:nth-last-child(-n + 1) {
   border-bottom: none;
 }
 
-.even-nb-categories > .category-item:nth-last-child(-n + 2) {
+.even-nb-categories .category-item:nth-last-child(-n + 2) {
   border-bottom: none;
 }
 

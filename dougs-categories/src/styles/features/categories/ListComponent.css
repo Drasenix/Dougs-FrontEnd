@@ -10,8 +10,6 @@
 }
 
 .list-categories-search {
-  box-sizing: border-box;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,8 +48,6 @@
 }
 
 .list-categories-select {
-  box-sizing: border-box;
-
   flex-direction: row;
   justify-content: space-between;
   padding: 0px 9px;
