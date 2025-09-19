@@ -10,7 +10,6 @@ interface ICategoryProps {
 export function CategoryComponent(props: ICategoryProps) {
   const class_name_color = props.category.group?.color;
 
-  const descriptionHTML: string = "<p>" + props.category.description + "</p>";
   return (
     <div className={"category-content"}>
       {props.ordering === OrderingTypes.Alphabetical && (
