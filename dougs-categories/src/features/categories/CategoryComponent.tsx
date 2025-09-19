@@ -9,6 +9,8 @@ interface ICategoryProps {
 
 export function CategoryComponent(props: ICategoryProps) {
   const class_name_color = props.category.group?.color;
+
+  const descriptionHTML: string = "<p>" + props.category.description + "</p>";
   return (
     <div className={"category-content"}>
       {props.ordering === OrderingTypes.Alphabetical && (
@@ -17,7 +19,10 @@ export function CategoryComponent(props: ICategoryProps) {
         </div>
       )}
       <p className="categorie-wording">{props.category.wording}</p>
-      <p className="categorie-description">{props.category.description}</p>
+      <p
+        className="categorie-description"
+        dangerouslySetInnerHTML={{ __html: props.category.description }}
+      />
     </div>
   );
 }
