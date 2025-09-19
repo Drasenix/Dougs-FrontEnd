@@ -16,22 +16,29 @@ export function AlphabeticalCategoriesComponent(props: IAlpheticalProps) {
     setSelectedCategory(id_category);
   }
 
+  const class_name_even_or_odd: string =
+    props.categories.length % 2 === 0
+      ? "even-nb-categories"
+      : "odd-nb-categories";
+
   return (
-    <ul className="alphabetical-categories-list">
-      {props.categories.map((category) => (
-        <CategoryItemComponent
-          key={category.id}
-          category={category}
-          isSelected={category.id === selectedCategory}
-          selectCategory={changeSelectedCategory}
-        >
-          <CategoryComponent
-            ordering={OrderingTypes.Alphabetical}
+    <div className="alphabetical-categories-list-container">
+      <ul className={"alphabetical-categories-list " + class_name_even_or_odd}>
+        {props.categories.map((category) => (
+          <CategoryItemComponent
             key={category.id}
             category={category}
-          />
-        </CategoryItemComponent>
-      ))}
-    </ul>
+            isSelected={category.id === selectedCategory}
+            selectCategory={changeSelectedCategory}
+          >
+            <CategoryComponent
+              ordering={OrderingTypes.Alphabetical}
+              key={category.id}
+              category={category}
+            />
+          </CategoryItemComponent>
+        ))}
+      </ul>
+    </div>
   );
 }

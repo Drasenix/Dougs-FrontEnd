@@ -1,3 +1,7 @@
+.alphabetical-categories-list-container {
+  outline: solid 1px #dce4ed;
+}
+
 .alphabetical-categories-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

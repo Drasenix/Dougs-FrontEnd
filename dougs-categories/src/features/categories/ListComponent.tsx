@@ -39,6 +39,7 @@ function orderCategoriesByGroups(categories: ICategory[]): IGroupCategories[] {
     if (categorie.group) {
       const group: IGroup = categorie.group;
       let groupCategories: IGroupCategories;
+
       if (allGroupCategories.get(group.id)) {
         groupCategories = allGroupCategories.get(group.id);
         groupCategories.categories.push(categorie);
