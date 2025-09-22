@@ -20,7 +20,7 @@ describe("tests getVisibleCategories", () => {
     expect(result).toEqual([{ id: 1 }]);
   });
 
-  test("should log console error because error occuring on get(/visible-categories)", async () => {
+  test("should log console error and throw error because error occuring on get(/visible-categories)", async () => {
     // Given
     console.error = jest.fn();
     jest.spyOn(api, "get").mockResolvedValue(Promise.reject("invalid datas"));
@@ -95,7 +95,7 @@ describe("tests getAllCategories", () => {
     ]);
   });
 
-  test("should log console error because error occuring on get(/all-categories)", async () => {
+  test("should log console error and throw error because error occuring on get(/all-categories)", async () => {
     // Given
     console.error = jest.fn();
     jest.spyOn(api, "get").mockResolvedValue(Promise.reject("invalid datas"));
