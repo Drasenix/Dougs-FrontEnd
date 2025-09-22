@@ -74,8 +74,7 @@ describe("tests getAllCategories", () => {
     );
 
     // When
-    const result: IVisibleCategorie[] =
-      await categoryService.getVisibleCategories();
+    const result: ICategory[] = await categoryService.getAllCategories();
 
     // Then
     expect(result).toEqual([
