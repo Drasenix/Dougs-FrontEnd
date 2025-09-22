@@ -28,10 +28,10 @@ function CategoryListComponent(props: IListProps) {
   const [filterCategories, setFilterCategories] = useState<string>("");
 
   useEffect(() => {
-    const prepareAllVisibleCategories = async () => {
+    async function prepareAllVisibleCategories() {
       const allVisibleCategories: ICategory[] = await getAllVisibleCategories();
       setAllVisibleCategories(allVisibleCategories);
-    };
+    }
 
     prepareAllVisibleCategories().catch(console.error);
   }, []);
