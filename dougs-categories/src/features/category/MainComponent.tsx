@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/features/category/MainComponent.css";
-import ButtonCategoryComponent from "../../components/ui/ButtonCategoryComponent";
+import ButtonCategoryComponent from "./OrderingButtonComponent";
 import ListComponent from "./list/CategoryListComponent";
 
 export enum OrderingTypes {
