@@ -22,8 +22,19 @@ describe("tests getVisibleCategories", () => {
 
   test("should log console error because error occuring on get(/visible-categories)", async () => {
     // Given
+    console.error = jest.fn();
+    jest.spyOn(api, "get").mockResolvedValue(Promise.reject("invalid datas"));
     // When
     // Then
+
+    await expect(categoryService.getVisibleCategories).rejects.toThrow(
+      "Failed to fetch visible categories"
+    );
+
+    expect(console.error).toHaveBeenCalledWith(
+      "Error fetching visible categories:",
+      "invalid datas"
+    );
   });
 });
 
@@ -86,7 +97,18 @@ describe("tests getAllCategories", () => {
 
   test("should log console error because error occuring on get(/all-categories)", async () => {
     // Given
+    console.error = jest.fn();
+    jest.spyOn(api, "get").mockResolvedValue(Promise.reject("invalid datas"));
     // When
     // Then
+
+    await expect(categoryService.getAllCategories).rejects.toThrow(
+      "Failed to fetch all categories"
+    );
+
+    expect(console.error).toHaveBeenCalledWith(
+      "Error fetching all categories:",
+      "invalid datas"
+    );
   });
 });
