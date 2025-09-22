@@ -1,9 +1,9 @@
-import { ICategory } from "../../../../services/api/interfaces/Categorie";
-import { applyFilterOnCategories } from "../../../../services/features/category/list/CategoryListService";
+import { ICategory } from "../../../../../services/api/interfaces/Categorie";
+import { applyFilterOnCategories } from "../../../../../services/features/category/list/CategoryListService";
 import { expect, test } from "@jest/globals";
 
 test("should filter categories and remove those not containing value in wording or description", () => {
-  //Given
+  // Given
   const category_shoud_stay_because_of_wording: ICategory = {
     id: 1,
     group: {
@@ -12,7 +12,7 @@ test("should filter categories and remove those not containing value in wording 
       color: "m-blue",
     },
     wording: "wording test OK",
-    description: "desc test",
+    description: "desc test KO",
   };
 
   const category_shoud_stay_because_of_desc: ICategory = {
@@ -22,7 +22,7 @@ test("should filter categories and remove those not containing value in wording 
       name: "groupe 1",
       color: "m-blue",
     },
-    wording: "wording test",
+    wording: "wording test KO",
     description: "desc test OK",
   };
 
@@ -37,7 +37,7 @@ test("should filter categories and remove those not containing value in wording 
     description: "desc test KO",
   };
 
-  //When
+  // When
   const result_1: ICategory[] = applyFilterOnCategories("OK", [
     category_shoud_stay_because_of_wording,
     category_shoud_not_stay,
@@ -48,7 +48,7 @@ test("should filter categories and remove those not containing value in wording 
     category_shoud_not_stay,
   ]);
 
-  //THen
+  // THen
   expect(result_1).toEqual([category_shoud_stay_because_of_wording]);
   expect(result_2).toEqual([category_shoud_stay_because_of_desc]);
 });
