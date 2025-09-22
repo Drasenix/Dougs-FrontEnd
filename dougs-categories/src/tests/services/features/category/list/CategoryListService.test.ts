@@ -231,7 +231,7 @@ describe("tests getAllVisibleCategories", () => {
     expect(result).toEqual([category_first, category_second]);
   });
 
-  test("should console log error", async () => {
+  test("should log console error because error calling getVisibleCategories", async () => {
     // Given
     console.error = jest.fn();
 
