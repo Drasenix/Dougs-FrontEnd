@@ -29,7 +29,7 @@ test("should order category list alphabetically based on wording", () => {
   const category_shoud_be_third: ICategory = {
     id: 3,
     group: {
-      id: 2,
+      id: 1,
       name: "groupe 2",
       color: "m-pink",
     },
