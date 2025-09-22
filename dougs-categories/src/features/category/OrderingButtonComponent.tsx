@@ -6,7 +6,7 @@ import alphabetical_active from "../../assets/img/features/category/list/ordered
 import group from "../../assets/img/features/category/list/ordered/group/group.png";
 import group_active from "../../assets/img/features/category/list/ordered/group/group-active.png";
 
-interface IButtonCategoryProps {
+interface IOrderingButtonComponentProps {
   ordering: OrderingTypes;
   changeOrdering: Function;
   isActive: boolean;
@@ -19,7 +19,7 @@ interface IAttributes {
   text: string;
 }
 
-function ButtonCategoryComponent(props: IButtonCategoryProps) {
+function OrderingButtonComponent(props: IOrderingButtonComponentProps) {
   let attributes: IAttributes;
   switch (props.ordering) {
     case OrderingTypes.Group:
@@ -64,4 +64,4 @@ function ButtonCategoryComponent(props: IButtonCategoryProps) {
   );
 }
 
-export default ButtonCategoryComponent;
+export default OrderingButtonComponent;

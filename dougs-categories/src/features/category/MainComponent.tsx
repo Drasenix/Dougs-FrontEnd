@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/features/category/MainComponent.css";
-import ButtonCategoryComponent from "./OrderingButtonComponent";
+import OrderingButtonComponent from "./OrderingButtonComponent";
 import ListComponent from "./list/CategoryListComponent";
 
 export enum OrderingTypes {
@@ -17,12 +17,12 @@ function MainComponent() {
     <>
       <header className="Main-header">
         <p className="title-categories">Catégories</p>
-        <ButtonCategoryComponent
+        <OrderingButtonComponent
           ordering={OrderingTypes.Group}
           isActive={ordering === OrderingTypes.Group}
           changeOrdering={changeOrdering}
         />
-        <ButtonCategoryComponent
+        <OrderingButtonComponent
           ordering={OrderingTypes.Alphabetical}
           isActive={ordering === OrderingTypes.Alphabetical}
           changeOrdering={changeOrdering}
