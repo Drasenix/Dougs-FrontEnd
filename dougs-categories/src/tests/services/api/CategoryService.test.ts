@@ -1,25 +1,16 @@
 import { describe, expect, jest, test } from "@jest/globals";
-import axios from "axios";
 import * as categoryService from "../../../services/api/CategoryService";
 import { IVisibleCategorie } from "../../../services/api/interfaces/VisibleCategorie";
-import api from "../../../lib/axios/AxiosFacade";
-
-jest.mock("axios");
-const mockedAxios = axios as jest.MockedFunction<typeof axios>;
+import { api } from "../../../lib/axios/AxiosFacade";
+import { ICategory } from "../../../services/api/interfaces/Categorie";
 
 describe("tests getVisibleCategories", () => {
   test("should return values from get(/visible-categories)", async () => {
     // Given
 
-    //TODO Je dois bouchonner l'export par défaut de AxiosFacade avec le mock axios que j'ai créé au dessus
-
-    jest.mock("../../../lib/axios/AxiosFacade", () => {
-      return {
-        __esModule: true,
-        default: mockedAxios,
-      };
-    });
-    mockedAxios.get.mockResolvedValue(Promise.resolve({ data: { id: 1 } }));
+    jest
+      .spyOn(api, "get")
+      .mockResolvedValue(Promise.resolve({ data: [{ id: 1 }] }));
 
     // When
     const result: IVisibleCategorie[] =
@@ -39,8 +30,59 @@ describe("tests getVisibleCategories", () => {
 describe("tests getAllCategories", () => {
   test("should return values from get(/all-categories)", async () => {
     // Given
+    const category_shoud_stay_one: ICategory = {
+      id: 1,
+      group: {
+        id: 1,
+        name: "groupe 1",
+        color: "m-blue",
+      },
+      wording: "wording test OK",
+      description: "desc test KO",
+    };
+
+    const category_shoud_stay_second: ICategory = {
+      id: 2,
+      group: {
+        id: 1,
+        name: "groupe 1",
+        color: "m-blue",
+      },
+      wording: "wording test KO",
+      description: "desc test OK",
+    };
+
+    const category_shoud_stay_third: ICategory = {
+      id: 3,
+      group: {
+        id: 2,
+        name: "groupe 2",
+        color: "m-pink",
+      },
+      wording: "wording test KO",
+      description: "desc test KO",
+    };
+
+    jest.spyOn(api, "get").mockResolvedValue(
+      Promise.resolve({
+        data: [
+          category_shoud_stay_one,
+          category_shoud_stay_second,
+          category_shoud_stay_third,
+        ],
+      })
+    );
+
     // When
+    const result: IVisibleCategorie[] =
+      await categoryService.getVisibleCategories();
+
     // Then
+    expect(result).toEqual([
+      category_shoud_stay_one,
+      category_shoud_stay_second,
+      category_shoud_stay_third,
+    ]);
   });
 
   test("should log console error because error occuring on get(/all-categories)", async () => {
