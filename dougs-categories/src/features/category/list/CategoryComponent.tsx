@@ -1,4 +1,4 @@
-import { ICategory } from "../../../services/interfaces/Categorie";
+import { ICategory } from "../../../services/api/interfaces/Categorie";
 import "../../../styles/features/category/list/CategoryComponent.css";
 import { OrderingTypes } from "../MainComponent";
 
