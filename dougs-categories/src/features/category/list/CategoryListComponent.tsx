@@ -33,7 +33,7 @@ function CategoryListComponent(props: IListProps) {
       setAllVisibleCategories(allVisibleCategories);
     }
 
-    prepareAllVisibleCategories().catch(console.error);
+    prepareAllVisibleCategories().catch((error) => console.error(error));
   }, []);
 
   function changeFilterGroupId(group_id: string) {
