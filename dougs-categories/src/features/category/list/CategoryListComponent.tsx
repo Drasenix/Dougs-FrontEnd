@@ -28,7 +28,12 @@ function CategoryListComponent(props: IListProps) {
   const [filterCategories, setFilterCategories] = useState<string>("");
 
   useEffect(() => {
-    getAllVisibleCategories().then((value) => setAllVisibleCategories(value));
+    const prepareAllVisibleCategories = async () => {
+      const allVisibleCategories: ICategory[] = await getAllVisibleCategories();
+      setAllVisibleCategories(allVisibleCategories);
+    };
+
+    prepareAllVisibleCategories().catch(console.error);
   }, []);
 
   function changeFilterGroupId(group_id: string) {
