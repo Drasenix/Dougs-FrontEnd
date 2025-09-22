@@ -1,7 +1,7 @@
 import { IGroupCategories } from "./GroupsCategoriesComponent";
 import "../../../../../styles/features/category/list/ordered/group/GroupCategoriesComponent.css";
 import { useState } from "react";
-import { OrderingTypes } from "../../../MainComponent";
+import { OrderingTypes } from "../../../CategoryMenuComponent";
 import { CategoryComponent } from "../../CategoryComponent";
 import { CategoryItemComponent } from "../../CategoryItemComponent";
 interface IGroupCategoryProps {

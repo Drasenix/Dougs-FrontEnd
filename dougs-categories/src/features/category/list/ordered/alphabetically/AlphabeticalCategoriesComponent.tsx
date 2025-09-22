@@ -1,7 +1,7 @@
 import { ICategory } from "../../../../../services/api/interfaces/Categorie";
 import "../../../../../styles/features/category/list/ordered/alphabetically/AlphabeticalCategoriesComponent.css";
 import { useState } from "react";
-import { OrderingTypes } from "../../../MainComponent";
+import { OrderingTypes } from "../../../CategoryMenuComponent";
 import { CategoryComponent } from "../../CategoryComponent";
 import { CategoryItemComponent } from "../../CategoryItemComponent";
 

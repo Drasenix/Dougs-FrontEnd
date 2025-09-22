@@ -7,7 +7,7 @@ import {
   GroupsCategoriesComponent,
   IGroupCategories,
 } from "./ordered/group/GroupsCategoriesComponent";
-import { OrderingTypes } from "../MainComponent";
+import { OrderingTypes } from "../CategoryMenuComponent";
 import { orderCategoriesAlphabetically } from "../../../services/features/category/list/ordered/alphabetically/AlphabeticalCategoriesService";
 import { orderCategoriesByGroups } from "../../../services/features/category/list/ordered/group/GroupCategoriesService";
 import {

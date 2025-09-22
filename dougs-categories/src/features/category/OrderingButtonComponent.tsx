@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/features/category/OrderingButtonComponent.css";
-import { OrderingTypes } from "./MainComponent";
+import { OrderingTypes } from "./CategoryMenuComponent";
 import alphabetical from "../../assets/img/features/category/list/ordered/alphabetically/alphabetical-order.png";
 import alphabetical_active from "../../assets/img/features/category/list/ordered/alphabetically/alphabetical-order-active.png"; //
 import group from "../../assets/img/features/category/list/ordered/group/group.png";
