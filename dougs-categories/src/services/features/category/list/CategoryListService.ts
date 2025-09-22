@@ -1,7 +1,7 @@
 import {
   getVisibleCategories,
   getAllCategories,
-} from "../../../api/CategorieService";
+} from "../../../api/CategoryService";
 import { ICategory } from "../../../api/interfaces/Categorie";
 import { IVisibleCategorie } from "../../../api/interfaces/VisibleCategorie";
 
@@ -17,8 +17,9 @@ export async function getAllVisibleCategories(): Promise<ICategory[]> {
     return completeVisibleCategories;
   } catch (error) {
     console.error("Problème avec la récupération des catégories");
+  } finally {
+    return completeVisibleCategories;
   }
-  return completeVisibleCategories;
 }
 
 export function applyFilterOnCategories(
