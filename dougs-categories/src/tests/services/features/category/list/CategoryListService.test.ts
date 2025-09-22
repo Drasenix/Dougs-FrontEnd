@@ -5,10 +5,10 @@ import {
   getAllVisibleCategories,
 } from "../../../../../services/features/category/list/CategoryListService";
 import * as categoryService from "../../../../../services/api/CategoryService";
-import { describe, expect, jest, test } from "@jest/globals";
+import { describe, expect, it, jest } from "@jest/globals";
 
 describe("tests applyFilterOnCategories", () => {
-  test("should filter categories and remove those not containing value in wording or description", () => {
+  it("should filter categories and remove those not containing value in wording or description", () => {
     // Given
     const category_shoud_stay_because_of_wording: ICategory = {
       id: 1,
@@ -59,7 +59,7 @@ describe("tests applyFilterOnCategories", () => {
     expect(result_2).toEqual([category_shoud_stay_because_of_desc]);
   });
 
-  test("should not filter at all", () => {
+  it("should not filter at all", () => {
     // Given
     const category_shoud_stay_one: ICategory = {
       id: 1,
@@ -111,7 +111,7 @@ describe("tests applyFilterOnCategories", () => {
 });
 
 describe("tests getAllVisibleCategories", () => {
-  test("should return all categories because all categories are visible", async () => {
+  it("should return all categories because all categories are visible", async () => {
     // Given
 
     const category_first: ICategory = {
@@ -173,7 +173,7 @@ describe("tests getAllVisibleCategories", () => {
     expect(result).toEqual(allCategories);
   });
 
-  test("should return only visible categories", async () => {
+  it("should return only visible categories", async () => {
     // Given
 
     const category_first: ICategory = {
@@ -231,7 +231,7 @@ describe("tests getAllVisibleCategories", () => {
     expect(result).toEqual([category_first, category_second]);
   });
 
-  test("should log console error because error calling getVisibleCategories", async () => {
+  it("should log console error because error calling getVisibleCategories", async () => {
     // Given
     console.error = jest.fn();
 

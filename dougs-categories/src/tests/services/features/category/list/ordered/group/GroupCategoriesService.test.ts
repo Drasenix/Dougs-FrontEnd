@@ -1,9 +1,9 @@
 import { IGroupCategories } from "../../../../../../../features/category/list/ordered/group/GroupsCategoriesComponent";
 import { ICategory } from "../../../../../../../services/api/interfaces/Categorie";
 import { orderCategoriesByGroups } from "../../../../../../../services/features/category/list/ordered/group/GroupCategoriesService";
-import { expect, jest, test } from "@jest/globals";
+import { expect, it, jest } from "@jest/globals";
 
-test("should return an array of groups with their categories based on category's group id", () => {
+it("should return an array of groups with their categories based on category's group id", () => {
   // Given
   const first_category_in_group_one: ICategory = {
     id: 1,
@@ -73,7 +73,7 @@ test("should return an array of groups with their categories based on category's
   expect(result).toEqual(expected_result);
 });
 
-test("should be alerted that a category is not in a group", () => {
+it("should be alerted that a category is not in a group", () => {
   // Given
   console.log = jest.fn();
   const category_not_in_group: ICategory = {

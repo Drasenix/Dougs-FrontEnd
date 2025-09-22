@@ -1,11 +1,11 @@
-import { describe, expect, jest, test } from "@jest/globals";
+import { describe, expect, it, jest } from "@jest/globals";
 import * as categoryService from "../../../services/api/CategoryService";
 import { IVisibleCategorie } from "../../../services/api/interfaces/VisibleCategorie";
 import { api } from "../../../lib/axios/AxiosFacade";
 import { ICategory } from "../../../services/api/interfaces/Categorie";
 
 describe("tests getVisibleCategories", () => {
-  test("should return values from get(/visible-categories)", async () => {
+  it("should return values from get(/visible-categories)", async () => {
     // Given
 
     jest
@@ -20,7 +20,7 @@ describe("tests getVisibleCategories", () => {
     expect(result).toEqual([{ id: 1 }]);
   });
 
-  test("should log console error and throw error because error occuring on get(/visible-categories)", async () => {
+  it("should log console error and throw error because error occuring on get(/visible-categories)", async () => {
     // Given
     console.error = jest.fn();
     jest.spyOn(api, "get").mockResolvedValue(Promise.reject("invalid datas"));
@@ -39,7 +39,7 @@ describe("tests getVisibleCategories", () => {
 });
 
 describe("tests getAllCategories", () => {
-  test("should return values from get(/all-categories)", async () => {
+  it("should return values from get(/all-categories)", async () => {
     // Given
     const category_shoud_stay_one: ICategory = {
       id: 1,
@@ -95,7 +95,7 @@ describe("tests getAllCategories", () => {
     ]);
   });
 
-  test("should log console error and throw error because error occuring on get(/all-categories)", async () => {
+  it("should log console error and throw error because error occuring on get(/all-categories)", async () => {
     // Given
     console.error = jest.fn();
     jest.spyOn(api, "get").mockResolvedValue(Promise.reject("invalid datas"));

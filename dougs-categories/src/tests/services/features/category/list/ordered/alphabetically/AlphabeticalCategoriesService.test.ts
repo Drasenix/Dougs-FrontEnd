@@ -1,8 +1,8 @@
 import { ICategory } from "../../../../../../../services/api/interfaces/Categorie";
 import { orderCategoriesAlphabetically } from "../../../../../../../services/features/category/list/ordered/alphabetically/AlphabeticalCategoriesService";
-import { expect, test } from "@jest/globals";
+import { expect, it } from "@jest/globals";
 
-test("should order category list alphabetically based on wording", () => {
+it("should order category list alphabetically based on wording", () => {
   // Given
   const category_shoud_be_first: ICategory = {
     id: 1,
