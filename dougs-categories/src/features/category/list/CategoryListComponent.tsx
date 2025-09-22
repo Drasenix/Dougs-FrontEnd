@@ -19,7 +19,7 @@ interface IListProps {
   ordering: OrderingTypes;
 }
 
-function ListComponent(props: IListProps) {
+function CategoryListComponent(props: IListProps) {
   const [allVisibleCategories, setAllVisibleCategories] = useState<ICategory[]>(
     []
   );
@@ -115,4 +115,4 @@ function ListComponent(props: IListProps) {
   );
 }
 
-export default ListComponent;
+export default CategoryListComponent;

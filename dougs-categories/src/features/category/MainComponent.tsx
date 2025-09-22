@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/features/category/MainComponent.css";
 import OrderingButtonComponent from "./OrderingButtonComponent";
-import ListComponent from "./list/CategoryListComponent";
+import CategoryListComponent from "./list/CategoryListComponent";
 
 export enum OrderingTypes {
   Alphabetical = "alphabetical",
@@ -31,7 +31,7 @@ function MainComponent() {
 
       <main className="Main-main">
         <div className="main-container">
-          <ListComponent ordering={ordering} />
+          <CategoryListComponent ordering={ordering} />
         </div>
       </main>
 
