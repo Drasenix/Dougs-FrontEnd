@@ -6,3 +6,8 @@
 2. cd PATH_TO_PROJECT_Dougs-FrontEnd/dougs-categories
 3. npm install
 4. npm run start
+
+## Lancer les tests
+
+1. cd PATH_TO_PROJECT_Dougs-FrontEnd/dougs-categories
+2. npx jest
