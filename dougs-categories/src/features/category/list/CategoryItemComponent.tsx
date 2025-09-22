@@ -1,5 +1,5 @@
-import { ICategory } from "../../services/interfaces/Categorie";
-import "../../styles/features/categories/CategoryItemComponent.css";
+import { ICategory } from "../../../services/interfaces/Categorie";
+import "../../../styles/features/category/list/CategoryItemComponent.css";
 
 interface ICategoryItemProps {
   category: ICategory;

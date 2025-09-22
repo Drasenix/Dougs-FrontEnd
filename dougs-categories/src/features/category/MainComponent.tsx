@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../../styles/features/categories/MainComponent.css";
+import "../../styles/features/category/MainComponent.css";
 import ButtonCategoryComponent from "../../components/ui/ButtonCategoryComponent";
-import ListComponent from "./ListComponent";
+import ListComponent from "./list/CategoryListComponent";
 
 export enum OrderingTypes {
   Alphabetical = "alphabetical",

@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/features/categories/ListComponent.css";
+import "../../../styles/features/category/list/CategoryListComponent.css";
 import {
   getAllCategories,
   getVisibleCategories,
-} from "../../services/CategorieService";
-import search from "../../assets/img/features/categories/search.png";
-import { ICategory, IGroup } from "../../services/interfaces/Categorie";
+} from "../../../services/CategorieService";
+import search from "../../../assets/img/features/category/list/search.png";
+import { ICategory, IGroup } from "../../../services/interfaces/Categorie";
 import { AlphabeticalCategoriesComponent } from "./ordered/alphabetically/AlphabeticalCategoriesComponent";
 import {
   GroupsCategoriesComponent,
   IGroupCategories,
 } from "./ordered/group/GroupsCategoriesComponent";
-import { OrderingTypes } from "./MainComponent";
+import { OrderingTypes } from "../MainComponent";
+import { IVisibleCategorie } from "../../../services/interfaces/VisibleCategorie";
 
 interface IListProps {
   ordering: OrderingTypes;
@@ -20,8 +21,8 @@ interface IListProps {
 async function getAllVisibleCategories(): Promise<ICategory[]> {
   let completeVisibleCategories: ICategory[] = [];
   try {
-    const visibleCategories = await getVisibleCategories();
-    const allCategories = await getAllCategories();
+    const visibleCategories: IVisibleCategorie[] = await getVisibleCategories();
+    const allCategories: ICategory[] = await getAllCategories();
 
     completeVisibleCategories = allCategories.filter((category) =>
       visibleCategories.map((visible) => visible.id).includes(category.id)
@@ -59,7 +60,7 @@ function orderCategoriesByGroups(categories: ICategory[]): IGroupCategories[] {
   }));
 }
 
-function orderCategoriesAlphabetically(categories: ICategory[]) {
+function orderCategoriesAlphabetically(categories: ICategory[]): ICategory[] {
   categories.sort(function (a, b) {
     return a.wording.localeCompare(b.wording);
   });
@@ -67,7 +68,10 @@ function orderCategoriesAlphabetically(categories: ICategory[]) {
   return categories;
 }
 
-function applyFilterOnCategories(filter: string, categories: ICategory[]) {
+function applyFilterOnCategories(
+  filter: string,
+  categories: ICategory[]
+): ICategory[] {
   if (filter.length === 0) {
     return categories;
   }
