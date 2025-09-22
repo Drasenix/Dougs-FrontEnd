@@ -1,4 +1,4 @@
-import MainComponent from "./features/categories/MainComponent";
+import MainComponent from "./features/category/MainComponent";
 import "../src/styles/App/App.css";
 function App() {
   return (

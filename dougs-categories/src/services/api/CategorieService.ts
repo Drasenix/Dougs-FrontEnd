@@ -1,4 +1,4 @@
-import api from "../lib/axios/AxiosFacade";
+import api from "../../lib/axios/AxiosFacade";
 import { ICategory } from "./interfaces/Categorie";
 import { IVisibleCategorie } from "./interfaces/VisibleCategorie";
 
