@@ -11,6 +11,8 @@ describe("tests getVisibleCategories", () => {
   test("should return values from get(/visible-categories)", async () => {
     // Given
 
+    //TODO Je dois bouchonner l'export par défaut de AxiosFacade avec le mock axios que j'ai créé au dessus
+
     jest.mock("../../../lib/axios/AxiosFacade", () => {
       return {
         __esModule: true,
