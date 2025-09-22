@@ -20,6 +20,10 @@ export function orderCategoriesByGroups(
         };
       }
       allGroupCategories.set(group.id, groupCategories);
+    } else {
+      console.log(
+        "La catégorie id=" + categorie.id + " n'appartient à aucun groupe"
+      );
     }
   });
 

@@ -9,5 +9,4 @@ module.exports = {
     ...tsJestTransformCfg,
   },
   collectCoverage: true,
-  coverageDirectory: "coverage",
 };

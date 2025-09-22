@@ -16,7 +16,7 @@ test("should order category list alphabetically based on wording", () => {
   };
 
   const category_shoud_be_second: ICategory = {
-    id: 1,
+    id: 2,
     group: {
       id: 1,
       name: "groupe 1",
@@ -27,11 +27,11 @@ test("should order category list alphabetically based on wording", () => {
   };
 
   const category_shoud_be_third: ICategory = {
-    id: 1,
+    id: 3,
     group: {
-      id: 1,
+      id: 2,
       name: "groupe 2",
-      color: "m-blue",
+      color: "m-pink",
     },
     wording: "CCC",
     description: "desc",

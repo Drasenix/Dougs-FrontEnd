@@ -16,7 +16,7 @@ test("should filter categories and remove those not containing value in wording 
   };
 
   const category_shoud_stay_because_of_desc: ICategory = {
-    id: 1,
+    id: 2,
     group: {
       id: 1,
       name: "groupe 1",
@@ -27,11 +27,11 @@ test("should filter categories and remove those not containing value in wording 
   };
 
   const category_shoud_not_stay: ICategory = {
-    id: 1,
+    id: 3,
     group: {
-      id: 1,
+      id: 2,
       name: "groupe 2",
-      color: "m-blue",
+      color: "m-pink",
     },
     wording: "wording test KO",
     description: "desc test KO",
